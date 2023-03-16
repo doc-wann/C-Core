@@ -59,7 +59,7 @@ char  letra = 'A'.
 
 Note que usamos aspas simples para definir o conteudo de 'Letra'. Em C, aspas simples fazem referência a um char. Aspas duplas fazem referência a **strings**, que vamos ver daqui a pouco...!
 
-#### string!
+#### string/array(tipo char)!
 Uma string é, em essência, uma cadeia de caracteres. Quando você escreve uma palavra, no seu caderno, com lápis ou caneta, qual é o processo? Para escrever a palavra SAMBA, nós precisamos escrever primeiro o S, depois o A, depois o M, e por assim vai...
 Declarações de strings funcionam do mesmo jeito que as de char, em C:
 
@@ -67,3 +67,17 @@ char string[10]
 
 Com isso, estamos informando o computador que queremos montar uma cadeia de 10 caracteres consecutivos! C tem problemas sérios com administração de memória, e strings precisam ser muito cuidadosamente gerenciadas para evitar leaks. Funções como Malloc(), Calloc() e Free() são essênciais para o gerenciamento de memória de programas complexos em C, e, sinceramente, são uma das maiores dores de cabeça que você pode ter na hora de refatorar um código.
 
+Esse é o jeito mais "fácil" de criar strings - Outro jeito está relacionado com o uso de ponteiros!
+Usar ponteiros é mais divertido, na minha concepção burra de diversão: Eles te permitem criar strings de tamanhos dinâmicos.
+
+Um ponteiro não é nada mais que um endereço de memória, um marca-página no seu computador - Ele marca, nesse caso, o início da string. Isso é tudo que você precisa saber sobre ponteiros para criar strings.
+Uma declaração de string usando ponteiros é a seguinte:
+
+char  *string;
+
+Isso indica, para o computador, que em vez de reservar 1 byte para 1 char, ele vai se preparar para receber uma sequência de caracteres a partir do seu ponteiro. Para dar valor a uma string assim, usamos
+
+char  *string;
+string = "conteúdo da string"
+
+Fácil, não?
