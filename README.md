@@ -37,9 +37,11 @@ Linguagens de programação também tem conjuntos de coisas que significam... Be
 Int vem de Integer, que representa algo no inteiro matemático. Ints são referenciados como o interante do conjunto matemático ao qual fazem referência. 
 Se eu quiser, por exemplo, criar um contador de 0 a 10, posso faze-lo em C da seguinte maneira:
 
+**/*Exemplo!*/**
 int numero = 0;
 while (numero != 10)
   numero++;
+**/*Exemplo!*/**
 
 Ints tem 4 bytes, ou  seja, 32 bits (que são binários!) - Isso convem que um int em C tradicionalmente suporte valores entre **-2147483648** e **2147483647**.
 
@@ -51,11 +53,15 @@ Caracteres são  contidos na tabela [ASCII](https://www.rapidtables.com/code/tex
 
 Um char tem tamanho de 1 byte, por que seu valor só precisa compreender os 127 caracteres da tabela ASCII. Isso significa que char é literalmente um número, mas um número que faz analogia a um cararactere! No exemplo a seguir vou definir o valor de uma variavel tipo char para "A":
 
+**/*Exemplo!*/**
 char  letra = 65;
+**/*Exemplo!*/**
 
 Isso é a mesma coisa que dizer
 
+**/*Exemplo!*/**
 char  letra = 'A'.
+**/*Exemplo!*/**
 
 Note que usamos aspas simples para definir o conteudo de 'Letra'. Em C, aspas simples fazem referência a um char. Aspas duplas fazem referência a **strings**, que vamos ver daqui a pouco...!
 
@@ -63,7 +69,9 @@ Note que usamos aspas simples para definir o conteudo de 'Letra'. Em C, aspas si
 Uma string é, em essência, uma cadeia de caracteres. Quando você escreve uma palavra, no seu caderno, com lápis ou caneta, qual é o processo? Para escrever a palavra SAMBA, nós precisamos escrever primeiro o S, depois o A, depois o M, e por assim vai...
 Declarações de strings funcionam do mesmo jeito que as de char, em C:
 
+**/*Exemplo!*/**
 char string[10]
+**/*Exemplo!*/**
 
 Com isso, estamos informando o computador que queremos montar uma cadeia de 10 caracteres consecutivos! C tem problemas sérios com administração de memória, e strings precisam ser muito cuidadosamente gerenciadas para evitar leaks. Funções como Malloc(), Calloc() e Free() são essênciais para o gerenciamento de memória de programas complexos em C, e, sinceramente, são uma das maiores dores de cabeça que você pode ter na hora de refatorar um código.
 
@@ -73,11 +81,29 @@ Usar ponteiros é mais divertido, na minha concepção burra de diversão: Eles 
 Um ponteiro não é nada mais que um endereço de memória, um marca-página no seu computador - Ele marca, nesse caso, o início da string. Isso é tudo que você precisa saber sobre ponteiros para criar strings.
 Uma declaração de string usando ponteiros é a seguinte:
 
+**/*Exemplo!*/**
 char  *string;
+**/*Exemplo!*/**
 
 Isso indica, para o computador, que em vez de reservar 1 byte para 1 char, ele vai se preparar para receber uma sequência de caracteres a partir do seu ponteiro. Para dar valor a uma string assim, usamos
 
+**/*Exemplo!*/**
 char  *string;
 string = "conteúdo da string"
+**/*Exemplo!*/**
 
 Fácil, não?
+Maais ou menos... 
+O problema em usar esse tipo de declaração é que isso pode, novamente, causar problemas de memória! Pra entender como evitar isso, caso seja do seu interesse, é válido olhar a documentação das funções de gerenciamento de memória: [coisas de gerenciamento de memória](https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/)
+
+Você pode acessar posições específicas de uma string usando [x] (x sendo uma variavel numérica) pra escolher a posição a ser vista. Pedir um retorno de uma string[x] fornece um char, especificamente o alocado na posição requerida.
+
+**/*Exemplo!*/**
+char *string;
+char letra;
+
+string = "oie";
+letra = string[0];
+**/*Exemplo!*/**
+
+Isso vai definir a variável "letra" como 'o', que está na posição 0 da string ;)
