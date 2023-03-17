@@ -38,7 +38,10 @@ Linguagens de programação também tem conjuntos de coisas que significam... Be
 ---
 
 Primeiramente, vale debater o que são operadores: coisas que usamos para traduzir nossas ordens em comandos entendidos pela máquina. Por exemplo, em C, o operador * faz referência a multiplicação, de modo com que...
-> 3 * 3 = 9;
+
+```
+3 * 3 = 9;
+```
 
 Abaixo segue uma lista dos operadores matemáticos fundamentais do C! Eles são chamados de operadores aritiméticos.
 
@@ -72,13 +75,58 @@ Vamos dar uma olhada mais profunda em *'palavras reservadas'*. Palavras reservad
 #### WHILE
 O While() define que todo código contido por ele seja repetido quantas vezes forem necessárias para que a condição colocada entre seus parênteses seja verdadeira. Na função abaixo, vamos fazer o programa incrementar o valor de (i) até que ele seja igual a dez. Para isso, também vamos usar o operador matemático +, submetendo nosso index a ele...
 
-> while(i++ != 10);
+```
+while(i++ != 10);
+```
 
 O ++, colocado depois de uma variável, vai incrementar o valor dele em 1 assim que for usado no contexto colocado. Se o valor de i inicia em 0, a primeira execução do while vai verificar se 0 é igual a 10. A resposta é não, então ele vai verificar novamente. A essa altura, o i já tem valor 1, justamente por causa do ++. 
 
 Ele vai repetir esse ciclo de incrementação até chegar no seu objetivo.
 
+Whiles são de longe um dos operadores mais incriveis perfeitos e magnificos da programação! Eles evitam muito trabalho desnecessário, e ajudam *demais* na hora de completar processos dependentes de iteração, contagem e afins.
 
+Vocẽ pode parar um loop a qualquer momento usando a *palavra reservada* break ;
+
+#### IF
+if(), em português Se, são exatamente o que a sua tradução implica... Se a condição colocada em parẽnteses for verdadeira, o bloco contido em sua dependência será executado :) Na situação a seguir vamos implementar o código contido na explicação de while, pedindo para que, a partir da quinta iteração do loop, seja impresso no console "oi batata"
+
+```
+while (i++ != 10)
+{
+    if (i > 5)
+        printf("oi batata");
+}
+```
+
+#### ELSE
+else, em português algo como *'então'*, tem a função de controlar qual evento encadeado deve ser ativado. Pode parecer confuso, mas na prática é bem fácil! Ele sempre vem acompanhado do segundo if exclusivo de uma cadeia de comandos, e serve como um "faz isso, ou então isso". Multiplos else podem ser colocados no código, acompanhando ou não outras palavras reservadas. Abaixo está um exemplo onde, como no exemplo contido em IF, nosso código terá um contador sendo incrementado constantemente - Nosso if "principal" vai checar se *i* é igual a 5, e se for, vamos escrever "estamos em 5" na tela. Caso seja igual a 6, ele deve escrever "na verdade, estamos em 6" - em todo outro caso ele deve escrever "oi".
+
+```
+while (i++ != 10)
+{
+    if (i == 5)
+        printf("estamos em 5\n");
+    else if (i == 6)
+        printf("na verdade, estamos em 6\n";
+    else
+        printf("oi\n");
+}
+```
+resultado:
+
+```
+oi
+oi
+oi
+oi
+oi
+estamos em 5
+na verdade estamos em 6
+oi
+oi
+oi
+oi
+```
 
 ### Declarações de tipo:
 
@@ -88,9 +136,11 @@ Ele vai repetir esse ciclo de incrementação até chegar no seu objetivo.
 Int vem de Integer, que representa algo no inteiro matemático. Ints são referenciados como o interante do conjunto matemático ao qual fazem referência. 
 Se eu quiser, por exemplo, criar um contador de 0 a 10, posso faze-lo em C da seguinte maneira:
 
-> int numero = 0;
-> 
-> while (numero++ != 10);
+```
+int numero = 0;
+
+while (numero++ != 10);
+```
 
 Ints tem 4 bytes, ou  seja, 32 bits (que são binários!) - Isso convem que um int em C tradicionalmente suporte valores entre **-2147483648** e **2147483647**.
 
